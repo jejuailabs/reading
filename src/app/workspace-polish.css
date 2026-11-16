@@ -1,0 +1,354 @@
+/* Loaded after the shared styles. Keep these rules inside the reading workspaces. */
+.view-reader { container: reading / inline-size; }
+.view-studio { container: studio / inline-size; }
+
+:is(.view-reader, .view-studio) :is(.button, .text-button) {
+  min-height: 44px;
+  font-size: 14px;
+}
+:is(.view-reader, .view-studio) :is(.icon-button, .type-button) {
+  min-width: 44px;
+  min-height: 44px;
+}
+:is(.view-reader, .view-studio) .workspace-top { margin-bottom: 18px; }
+:is(.view-reader, .view-studio) .workspace-top :is(.back-link, .badge) {
+  font-size: 12px;
+  line-height: 1.6;
+}
+:is(.view-reader, .view-studio) .workspace-top .back-link { min-height: 44px; font-size: 14px; }
+:is(.view-reader, .view-studio) .eyebrow {
+  font-size: 11px;
+  letter-spacing: .08em;
+  line-height: 1.6;
+}
+
+/* The picture keeps its full composition; the text remains the adjustable layer. */
+.view-reader .reader-heading { margin-bottom: 24px; align-items: center; }
+.view-reader .reader-heading h1 { font-size: clamp(30px, 3.3vw, 42px); letter-spacing: -.025em; }
+.view-reader .reader-heading > .muted { font-size: 12px; }
+.view-reader .reader-book {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  min-height: 540px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 12px 36px #243b2b0e;
+}
+.view-reader .reader-text {
+  min-height: 540px;
+  padding: 76px 48px 66px;
+  box-shadow: none;
+}
+.view-reader .scene-label { top: 28px; left: 48px; right: 48px; font-size: 12px; }
+.view-reader .scene-label > span { font-size: 20px; }
+.view-reader .reader-text > p {
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+  line-height: 1.85;
+  letter-spacing: 0;
+  max-width: 32em;
+  margin: 0 auto;
+  width: 100%;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.view-reader .reader-art {
+  padding: 24px 24px 58px;
+  border-left: 1px solid var(--line);
+  box-shadow: none;
+  min-height: 0;
+  gap: 14px;
+}
+.view-reader .reader-art > :is(.scene-art, svg) {
+  display: block;
+  width: 100%;
+  height: min(66vh, 600px);
+  min-height: 300px;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+  border-radius: 3px;
+  background: #fff;
+}
+.view-reader .reader-art-caption { font-size: 12px; line-height: 1.6; margin: 0; }
+.view-reader .reader-page-number { font-size: 13px; bottom: 22px; }
+.view-reader .reader-controls {
+  position: sticky;
+  bottom: 16px;
+  z-index: 8;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 18px 0 24px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 6px 24px #2038260a;
+}
+.view-reader .reader-controls .row { gap: 6px; flex-wrap: wrap; }
+.view-reader .reader-controls .button { font-size: 14px; padding: 9px 12px; }
+.view-reader .type-button { font-size: 18px; }
+.view-reader .reader-type-value { min-width: 26px; text-align: center; font-size: 13px; color: var(--muted); }
+.view-reader .pagination { gap: 10px; margin-left: auto; }
+.view-reader .pagination > span { font-size: 14px; }
+.view-reader .reader-prompt { padding: 24px 0; gap: 18px; background: none; border-radius: 0; border-top: 1px solid var(--line); }
+.view-reader .reader-prompt h3 { font-size: 20px; letter-spacing: -.02em; }
+.view-reader .reader-prompt p { font-size: 14px; line-height: 1.75; margin-top: 7px; }
+.view-reader .reader-prompt .button { font-size: 14px; min-height: 46px; }
+.view-reader .reader-end { margin-top: 10px; font-size: 13px; align-items: flex-start; }
+.view-reader .reader-end .muted { font-size: 12px; line-height: 1.8; }
+.view-reader .reader-end .text-button { font-size: 14px; }
+
+/* Writing stays central. The tools can be opened when a scene needs them. */
+.view-studio .studio-heading { margin-bottom: 24px; gap: 24px; }
+.view-studio .studio-heading h1 { font-size: clamp(28px, 3vw, 36px); letter-spacing: -.025em; }
+.view-studio .studio-heading p { font-size: 15px; line-height: 1.8; max-width: 65ch; }
+.view-studio .studio-heading .button { font-size: 14px; }
+.view-studio .editor-toolbar {
+  position: sticky;
+  top: 10px;
+  z-index: 10;
+  padding: 16px 20px;
+  gap: 14px 24px;
+  flex-wrap: wrap;
+  box-shadow: 0 3px 12px #243b2b06;
+}
+.view-studio .editor-title { flex: 1 1 300px; gap: 12px; }
+.view-studio .editor-title input {
+  flex: 1;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 10px;
+  font-size: 20px;
+  letter-spacing: -.02em;
+  border-radius: 6px;
+}
+.view-studio .editor-title input:not([readonly]):hover { background: var(--surface-alt); }
+.view-studio .editor-title input[readonly] { cursor: default; }
+.view-studio .editor-toolbar .button { font-size: 14px; min-height: 44px; padding: 10px 14px; }
+.view-studio .saved-label { font-size: 12px; white-space: nowrap; }
+.view-studio .project-switch { padding: 14px 20px; font-size: 13px; }
+.view-studio .project-switch select { min-height: 44px; font-size: 14px; padding: 9px 12px; }
+.view-studio .source-bridge { font-size: 14px; line-height: 1.7; padding: 14px 20px; flex-wrap: wrap; }
+.view-studio .source-bridge .text-button { font-size: 14px; }
+.view-studio .story-editor {
+  grid-template-columns: 90px minmax(0, 1fr) 228px;
+  min-height: 580px;
+  align-items: start;
+  overflow: clip;
+}
+.view-studio .editor-pages { height: 100%; padding: 22px 12px; gap: 16px; }
+.view-studio .editor-pages > .tiny-label { font-size: 10px; letter-spacing: .04em; }
+.view-studio .editor-pages > button { min-height: 44px; padding: 5px; border-radius: 6px; }
+.view-studio .editor-pages > button:not(.add-page) > :is(.scene-art, svg) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; background: #fff; }
+.view-studio .editor-pages > button > span { font-size: 14px; padding: 5px 0 1px; }
+.view-studio .editor-pages > button.add-page { gap: 7px; padding: 13px 3px; }
+.view-studio .add-page small { font-size: 14px; line-height: 1.5; }
+.view-studio .editor-canvas { padding: 28px; align-self: stretch; min-width: 0; }
+.view-studio .canvas-label { max-width: 940px; font-size: 12px; margin-bottom: 18px; line-height: 1.6; }
+.view-studio .canvas-label > span:last-child { font-size: 12px; }
+.view-studio .story-page {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  width: 100%;
+  max-width: 940px;
+  min-height: 500px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 10px 28px #2038260b;
+  overflow: hidden;
+}
+.view-studio .story-page > :is(.scene-art, svg) {
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 480px;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  padding: 18px;
+  margin: 0;
+  background: #fff;
+}
+.view-studio .story-page textarea,
+.view-studio .page-preview-text {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  min-height: 420px;
+  height: auto;
+  margin: 0;
+  padding: 28px 24px;
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+  font-size: 21px;
+  line-height: 1.85;
+  letter-spacing: 0;
+  border: 0;
+  border-left: 1px solid var(--line);
+  border-radius: 0;
+  field-sizing: content;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.view-studio .story-page textarea { resize: vertical; }
+.view-studio .story-page textarea:focus { outline-offset: -4px; }
+.view-studio .story-page textarea::placeholder { opacity: 1; color: var(--muted); }
+.view-studio .page-index { grid-column: 1 / -1; font-size: 12px; padding: 10px 16px; border-top: 1px solid var(--line); }
+.view-studio .canvas-note { max-width: 65ch; font-size: 12px; line-height: 1.8; margin-top: 18px; }
+.view-studio .editor-inspector { display: block; height: 100%; padding: 0; }
+.view-studio .editor-inspector > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 16px 18px;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+  cursor: pointer;
+  list-style: none;
+}
+.view-studio .editor-inspector > summary::-webkit-details-marker { display: none; }
+.view-studio .editor-inspector > summary > span { display: flex; gap: 10px; align-items: center; }
+.view-studio .editor-inspector > summary > svg { transition: transform .15s; }
+.view-studio .editor-inspector[open] > summary > svg { transform: rotate(90deg); }
+.view-studio .editor-inspector > summary:focus-visible { outline: 3px solid #d89a42; outline-offset: -4px; }
+.view-studio .inspector-content { display: flex; flex-direction: column; gap: 24px; padding: 8px 18px 22px; }
+.view-studio .editor-inspector:not([open]) > .inspector-content { display: none; }
+.view-studio .editor-inspector .tiny-label { font-size: 10px; letter-spacing: .04em; }
+.view-studio .editor-inspector h3 { font-size: 17px; margin: 8px 0 16px; }
+.view-studio .art-options { gap: 10px; }
+.view-studio .art-options button { min-width: 0; min-height: 44px; border-radius: 6px; padding: 4px; }
+.view-studio .art-options button > :is(.scene-art, svg) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; background: #fff; }
+.view-studio .art-options button > span { font-size: 14px; padding: 8px 2px 4px; }
+.view-studio .art-options button[aria-pressed=true] { padding: 3px; }
+.view-studio .editor-inspector .small { font-size: 12px; line-height: 1.8; }
+.view-studio .writing-tip { padding-top: 20px; }
+.view-studio .writing-tip h3 { font-size: 15px; }
+.view-studio .writing-tip p { font-size: 13px; line-height: 1.85; }
+.view-studio .contribution-note { margin-top: 0; font-size: 12px; line-height: 1.7; }
+.view-studio .contribution-note small { font-size: 11px; }
+.view-studio .story-editor:has(.editor-inspector:not([open])) { grid-template-columns: 90px minmax(0, 1fr); }
+.view-studio .story-editor .editor-inspector:not([open]) { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
+
+/* Preview is a reading surface, with only explicit page navigation below it. */
+.view-studio .story-editor.previewing { display: block; min-height: 0; }
+.view-studio .previewing .editor-pages,
+.view-studio .previewing .canvas-label,
+.view-studio .previewing .canvas-note { display: none; }
+.view-studio .previewing .editor-canvas { padding: 32px; }
+.view-studio .previewing .story-page { min-height: 560px; }
+.view-studio .previewing .story-page > :is(.scene-art, svg) { height: 560px; padding: 24px; }
+.view-studio .previewing .page-preview-text { align-self: center; font-size: 22px; min-height: 0; border-left: 0; padding: 40px 32px; }
+.view-studio .preview-pagination { display: flex; align-items: center; justify-content: center; gap: 24px; width: 100%; max-width: 940px; margin-top: 24px; }
+.view-studio .preview-pagination > span { color: var(--muted); font-size: 14px; white-space: nowrap; }
+.view-studio .preview-pagination .button { min-width: 44px; }
+.view-studio .brief-form { max-width: 820px; }
+.view-studio .brief-form :is(input, select) { min-height: 46px; font-size: 16px; }
+.view-studio .brief-form .field > span { font-size: 14px; }
+.view-studio .brief-form .muted { font-size: 13px; line-height: 1.8; }
+.view-studio .local-disclosure { font-size: 12px; line-height: 1.8; }
+.view-studio .plan-card > :is(.scene-art, svg) { display: block; width: 100%; height: 300px; max-height: none; object-fit: contain; border-radius: 6px; background: #fff; margin-bottom: 20px; }
+.view-studio .plan-card h3 { font-size: 21px; }
+.view-studio .plan-card p { font-size: 14px; line-height: 1.8; }
+.view-studio .plan-card .tiny-label { font-size: 11px; }
+.view-studio .plan-card .button { font-size: 14px; min-height: 44px; }
+.view-studio .modal :is(p, .checkbox-label) { font-size: 14px; line-height: 1.8; }
+.view-studio .modal .local-disclosure { font-size: 12px; }
+.view-studio .checkbox-label { min-height: 48px; align-items: flex-start; cursor: pointer; }
+.view-studio .checkbox-label input { width: 20px; height: 20px; }
+
+@media (max-width: 1279px) {
+  .view-studio .story-editor,
+  .view-studio .story-editor:has(.editor-inspector:not([open])) { grid-template-columns: 80px minmax(0, 1fr); }
+  .view-studio .editor-inspector { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
+  .view-studio .inspector-content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .75fr); gap: 24px; padding: 8px 24px 24px; }
+  .view-studio .art-options { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .view-studio .writing-tip { border: 0; padding-top: 8px; }
+  .view-studio .contribution-note { grid-column: 1 / -1; }
+}
+
+@container reading (max-width: 860px) {
+  .view-reader .reader-book { grid-template-columns: 1fr; min-height: 0; }
+  .view-reader .reader-art { order: -1; border-left: 0; border-bottom: 1px solid var(--line); padding: 20px 24px 52px; }
+  .view-reader .reader-art > :is(.scene-art, svg) { height: 380px; min-height: 0; }
+  .view-reader .reader-text { min-height: 0; padding: 72px 36px 60px; }
+  .view-reader .scene-label { left: 36px; right: 36px; }
+  .view-reader .reader-text > p { max-width: 28em; }
+}
+@container reading (max-width: 640px) {
+  .view-reader .reader-heading { align-items: flex-start; }
+  .view-reader .reader-heading .eyebrow { display: none; }
+  .view-reader .reader-heading > .muted { max-width: 100px; text-align: right; }
+  .view-reader .reader-controls { gap: 10px; padding: 10px; bottom: 8px; }
+  .view-reader .reader-controls > .row { width: 100%; justify-content: center; gap: 4px; }
+  .view-reader .pagination { margin: 0 auto; }
+  .view-reader .reader-art > :is(.scene-art, svg) { height: 300px; }
+  .view-reader .reader-text { padding: 66px 26px 56px; }
+  .view-reader .scene-label { left: 26px; right: 26px; }
+  .view-reader .reader-prompt { flex-wrap: wrap; gap: 14px; padding: 22px 0; }
+  .view-reader .reader-prompt > div { min-width: 0; flex-basis: calc(100% - 66px); }
+  .view-reader .reader-prompt .button { width: 100%; margin: 0; }
+  .view-reader .reader-end { flex-direction: column; gap: 8px; }
+}
+@container studio (max-width: 900px) {
+  .view-studio .editor-canvas { padding: 24px; }
+  .view-studio .story-page { grid-template-columns: 1fr; min-height: 0; }
+  .view-studio .story-page > :is(.scene-art, svg) { grid-column: 1; grid-row: 1; height: 340px; padding: 20px; }
+  .view-studio .story-page textarea,
+  .view-studio .page-preview-text { grid-column: 1; grid-row: 2; border-left: 0; border-top: 1px solid var(--line); min-height: 240px; padding: 26px; }
+  .view-studio .page-index { grid-row: 3; }
+  .view-studio .previewing .story-page { min-height: 0; }
+  .view-studio .previewing .story-page > :is(.scene-art, svg) { height: 420px; }
+  .view-studio .previewing .page-preview-text { min-height: 0; padding: 30px; }
+}
+@container studio (max-width: 560px) {
+  .view-studio .studio-heading { gap: 14px; }
+  .view-studio .studio-heading .eyebrow { display: none; }
+  .view-studio .studio-heading p { font-size: 14px; }
+  .view-studio .editor-toolbar { top: 0; padding: 12px; border-radius: 10px 10px 0 0; gap: 8px; }
+  .view-studio .editor-title { flex-basis: 100%; }
+  .view-studio .editor-title input { font-size: 18px; }
+  .view-studio .editor-toolbar > .row { margin-left: auto; gap: 6px; }
+  .view-studio .editor-toolbar .button { padding: 9px 12px; }
+  .view-studio .story-editor,
+  .view-studio .story-editor:has(.editor-inspector:not([open])) { grid-template-columns: 1fr; }
+  .view-studio .editor-pages { flex-direction: row; align-items: center; overflow-x: auto; height: auto; padding: 14px; gap: 12px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .view-studio .editor-pages > .tiny-label { display: none; }
+  .view-studio .editor-pages > button { width: 64px; flex: 0 0 64px; }
+  .view-studio .editor-pages > button.add-page { height: 90px; }
+  .view-studio .editor-canvas,
+  .view-studio .previewing .editor-canvas { padding: 16px; }
+  .view-studio .canvas-label { font-size: 12px; margin-bottom: 14px; }
+  .view-studio .canvas-label > span:last-child { display: none; }
+  .view-studio .story-page > :is(.scene-art, svg) { height: 290px; padding: 16px; }
+  .view-studio .story-page textarea { font-size: 20px; min-height: 250px; padding: 22px; }
+  .view-studio .previewing .story-page > :is(.scene-art, svg) { height: 330px; padding: 16px; }
+  .view-studio .previewing .page-preview-text { padding: 24px; font-size: 21px; }
+  .view-studio .preview-pagination { gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .view-studio .preview-pagination .button { padding: 10px 12px; }
+  .view-studio .inspector-content { grid-template-columns: 1fr; padding: 8px 18px 22px; }
+  .view-studio .editor-inspector > summary { padding: 16px 18px; }
+  .view-studio .writing-tip { padding-top: 18px; border-top: 1px solid var(--line); }
+  .view-studio .project-switch { flex-wrap: wrap; padding: 12px 16px; }
+  .view-studio .project-switch select { width: 100%; }
+  .view-studio .source-bridge { padding: 12px 16px; }
+  .view-studio .plan-card > :is(.scene-art, svg) { height: 280px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .view-studio .editor-inspector > summary > svg { transition: none; }
+}
+@media print {
+  .view-reader { container-type: normal; }
+  .view-reader .reader-book { grid-template-columns: 1fr 1fr; box-shadow: none; min-height: 0; }
+  .view-reader .reader-art { order: 0; padding: 24px; border: 0; }
+  .view-reader .reader-art > :is(.scene-art, svg) { height: 290px; min-height: 0; max-height: none; object-fit: contain; }
+  .view-reader .reader-text { padding: 52px 24px 42px; min-height: 320px; }
+  .view-reader .scene-label { left: 24px; right: 24px; }
+  .view-reader .reader-text > p { line-height: 1.8; }
+  .view-reader .reader-controls { display: none; }
+}

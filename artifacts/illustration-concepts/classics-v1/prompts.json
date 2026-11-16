@@ -1,0 +1,15 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-11-16",
+  "reference": "User-approved pencil journey image",
+  "prompts": [
+    {
+      "key": "korean-classics",
+      "prompt": "Create one airy colored-pencil illustration for a Korean elementary reading library collection. Use the attached image ONLY as the style reference: very fine colored-pencil lines, clean white paper, generous untouched white space, light spring colors, no dark heavy painting. A gentle old Korean village with two small thatched-roof hanok houses, a swallow perched by round gourds hanging from a vine, a narrow path, two brothers in simple pale hanbok carrying little rice sacks toward each other. In the distance a tiny mountain and a peach-colored sun and pale moon. It is a collection illustration evoking traditional folktales, not a map and not multiple panels. Square composition; artwork centered in the lower 65 percent and entirely contained with soft sparse edges. Upper 25 percent stays completely empty WHITE for typeset title added later. No text, no lettering, no border, no logos, no Western buildings, no large black shadows. Match the reference's delicate thin hand-colored pencil texture and bright white ground."
+    },
+    {
+      "key": "aesop-classics",
+      "prompt": "Create one airy colored-pencil illustration for an Aesop fables elementary reading collection. Use the attached image ONLY as the style reference: very fine colored-pencil outlines, clean white paper, lots of untouched white space, light natural color, small tender details. A peaceful meadow vignette with a hare and tortoise walking along a light winding path, a friendly lion resting next to a tiny mouse, and a fox glancing at a small bunch of grapes on a vine. This is one coherent gentle collection illustration, no panels, no buildings. A few grass tufts and daisies, a faint golden sun. Cute animal proportions but not plastic mascots, no clothing. Square composition, all creatures small and fully visible in the lower 65 percent; upper 25 percent is empty white for future typography. No text, no letters, no border, no logos, no heavy solid color areas, no dramatic lighting. Match the reference's thin colored-pencil hand-drawn texture and light airy white paper."
+    }
+  ]
+}

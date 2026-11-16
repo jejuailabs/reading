@@ -1,0 +1,570 @@
+{
+    "version":  1,
+    "engine":  "Windows SAPI 5 local voices",
+    "voices":  {
+                   "en":  "Microsoft Zira Desktop - English (United States)",
+                   "ko":  "Microsoft Heami Desktop - Korean"
+               },
+    "books":  {
+                  "sun-moon-siblings":  {
+                                            "en":  [
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/en-01.mp3",
+                                                           "duration":  32.034208,
+                                                           "sha256":  "77790f3ca2be7a8138a6fcc514f1284d390dbc86baac72096c7fccd0405e0d3e"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/en-02.mp3",
+                                                           "duration":  30.584583,
+                                                           "sha256":  "8063658beafecc75469d9a5b72a71c3c0f32db2e100be313d6be3f516e52088a"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/en-03.mp3",
+                                                           "duration":  30.250375,
+                                                           "sha256":  "af477e272920ddf51e95c57e32b7f40ea9d4e6832aa8896bde05dd40a9601b28"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/en-04.mp3",
+                                                           "duration":  29.115208,
+                                                           "sha256":  "722721a29ae01dcec47887d554adfdb18e7eb8033274ecf3aa6dc29dbf9a2fba"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/en-05.mp3",
+                                                           "duration":  29.150417,
+                                                           "sha256":  "625b46bf5dd94840c6febf892e818720bcd39b17ff01ebb90a36f4b524af3a19"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/en-06.mp3",
+                                                           "duration":  32.414208,
+                                                           "sha256":  "ba64ce906b9c84e58d43205f48ffe061cfd20cd4280162706bf0fa52a1c712ba"
+                                                       }
+                                                   ],
+                                            "ko":  [
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/ko-01.mp3",
+                                                           "duration":  34.71275,
+                                                           "sha256":  "b1dde2461b7f9b31bf5039617c965f261088b3a0fc8b820ce521e8d632e87938"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/ko-02.mp3",
+                                                           "duration":  34.751167,
+                                                           "sha256":  "07acb6a8692d2a70fd7a9bcb42ace018f0ae222a62c3898b77c99337d7a2b373"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/ko-03.mp3",
+                                                           "duration":  34.045917,
+                                                           "sha256":  "3797098152e2d3bf918b23d14c043d8c3429552797505c1d88bbecb550f4caa2"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/ko-04.mp3",
+                                                           "duration":  34.674458,
+                                                           "sha256":  "20b7cbe180188ca313ec5b306f4456dd8310637aa60467f1049e9d0c59e90a7a"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/ko-05.mp3",
+                                                           "duration":  33.851625,
+                                                           "sha256":  "80f64c11c5d805ad15cc26e071956910d8133cf62de17c7bcb739dea369cd075"
+                                                       },
+                                                       {
+                                                           "src":  "/audio/classics/sun-moon-siblings/ko-06.mp3",
+                                                           "duration":  37.354125,
+                                                           "sha256":  "96a98b5312db8885e1e884e69e8d0dce19d51620b423090bb22e09ccf35b650b"
+                                                       }
+                                                   ]
+                                        },
+                  "aesop-wind-sun":  {
+                                         "en":  [
+                                                    {
+                                                        "src":  "/audio/classics/aesop-wind-sun/en-01.mp3",
+                                                        "duration":  22.765542,
+                                                        "sha256":  "9c8fc1b1f636c83640606ddc34a76841ca4ce945067c7b61025abe72d121c019"
+                                                    },
+                                                    {
+                                                        "src":  "/audio/classics/aesop-wind-sun/en-02.mp3",
+                                                        "duration":  29.339583,
+                                                        "sha256":  "48ca5d18737a2f801fa1439baec15fc333980603d2fb913ee867f652fe464e1c"
+                                                    },
+                                                    {
+                                                        "src":  "/audio/classics/aesop-wind-sun/en-03.mp3",
+                                                        "duration":  25.921958,
+                                                        "sha256":  "4dd6924659be35d0b6acd5d44c832083a43a45b35c9b2dc29af9b79407d5356f"
+                                                    },
+                                                    {
+                                                        "src":  "/audio/classics/aesop-wind-sun/en-04.mp3",
+                                                        "duration":  27.68,
+                                                        "sha256":  "633e6beab67d6c39d14102bface01f9602679cf41e70d15d7cdf02bde59ea7e9"
+                                                    }
+                                                ],
+                                         "ko":  [
+                                                    {
+                                                        "src":  "/audio/classics/aesop-wind-sun/ko-01.mp3",
+                                                        "duration":  29.681292,
+                                                        "sha256":  "94c8e71e5ebc289d7513ec9faf6d3abbd9dc55ebf34c99c46be9bdd1c90d55da"
+                                                    },
+                                                    {
+                                                        "src":  "/audio/classics/aesop-wind-sun/ko-02.mp3",
+                                                        "duration":  32.442375,
+                                                        "sha256":  "1453752e98c814ecdcadc54b0341935d7f54c7e96ecae092203c081876ffc501"
+                                                    },
+                                                    {
+                                                        "src":  "/audio/classics/aesop-wind-sun/ko-03.mp3",
+                                                        "duration":  32.175083,
+                                                        "sha256":  "fd9c667a2b004e88ff7061c75221d125da77a8aae714e57aa8457a38fb20dd9c"
+                                                    },
+                                                    {
+                                                        "src":  "/audio/classics/aesop-wind-sun/ko-04.mp3",
+                                                        "duration":  32.946292,
+                                                        "sha256":  "9d84d051a15f8878564b397b10efcfbf3e28ee6634003fd7c5695f8670e3f705"
+                                                    }
+                                                ]
+                                     },
+                  "kind-brothers":  {
+                                        "en":  [
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/en-01.mp3",
+                                                       "duration":  29.87475,
+                                                       "sha256":  "e8aaa4dac22b3313a8976b0d85d294da5f3b9e72b496b8395a3909e471ff3bdc"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/en-02.mp3",
+                                                       "duration":  31.543958,
+                                                       "sha256":  "25aec4001bf93ba287d037d27b443f5f73515e9f62c7f9ed8fbdd7d52b833c01"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/en-03.mp3",
+                                                       "duration":  30.254208,
+                                                       "sha256":  "ab8cc7d6a64087bd33561bfa658f38621b7ea0527205854cb8ea887de9118df2"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/en-04.mp3",
+                                                       "duration":  32.499583,
+                                                       "sha256":  "9f87c2a0601a59f2a71fef6ad8fb7f1753b9840ab4449d7cbcc92c4675ad4b26"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/en-05.mp3",
+                                                       "duration":  34.825958,
+                                                       "sha256":  "50cf86583497fca490de306187e0cf3b3c5485fa0989cb11cdbab378f80a9a11"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/en-06.mp3",
+                                                       "duration":  31.719583,
+                                                       "sha256":  "79633a6cb6e2819f18a14535c454d61df9b7ae7496a4b9c083b09bf20fd4872b"
+                                                   }
+                                               ],
+                                        "ko":  [
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/ko-01.mp3",
+                                                       "duration":  38.7805,
+                                                       "sha256":  "9ee8b2c64c7dc622e75868997fcd4f1827140ebd8d23b79c7b0a1759ca31d658"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/ko-02.mp3",
+                                                       "duration":  38.136,
+                                                       "sha256":  "21bd1161d52e5f032db302a3ff8f789aa2085d75fce418912de2a8f85a5c73bc"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/ko-03.mp3",
+                                                       "duration":  37.674708,
+                                                       "sha256":  "d8899df95e89b3cfd94fad53b65346c3c5c861579bbc3a3cd44635d0c373159e"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/ko-04.mp3",
+                                                       "duration":  40.33175,
+                                                       "sha256":  "c52bf303e3545f756f725e9e008eb3c9698932d837565e90b8468e96113bc616"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/ko-05.mp3",
+                                                       "duration":  40.583208,
+                                                       "sha256":  "b980e8776aa4eaf810e2519c617b2d545e2b0679e1dabf20d2648c83333011fa"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/kind-brothers/ko-06.mp3",
+                                                       "duration":  37.617042,
+                                                       "sha256":  "6db360211ba5efcf953e29ecc25b4f7e94e7702a131edc0ec1bdeb6d15f4c883"
+                                                   }
+                                               ]
+                                    },
+                  "aesop-fox-grapes":  {
+                                           "en":  [
+                                                      {
+                                                          "src":  "/audio/classics/aesop-fox-grapes/en-01.mp3",
+                                                          "duration":  24.300875,
+                                                          "sha256":  "67f98bfe56a80db6a6f5c15196591c2365d8e96c4e2325674409acc9aacfff32"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-fox-grapes/en-02.mp3",
+                                                          "duration":  26.020792,
+                                                          "sha256":  "c990bcf95fe4c4371c81ed957a6c83bed8f8b5c62121edaa1de7f8c072234c8f"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-fox-grapes/en-03.mp3",
+                                                          "duration":  29.185958,
+                                                          "sha256":  "808d488b1ba2f9f5e70ad4fdaac4295013fe189067c2c556295e5a91d0695097"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-fox-grapes/en-04.mp3",
+                                                          "duration":  26.295292,
+                                                          "sha256":  "4a7a9c64d34be97e87ad5f0e46a3805721e181751e8c127cdae9fa56fa870b09"
+                                                      }
+                                                  ],
+                                           "ko":  [
+                                                      {
+                                                          "src":  "/audio/classics/aesop-fox-grapes/ko-01.mp3",
+                                                          "duration":  29.035333,
+                                                          "sha256":  "9641a2894060ec840f8817bf9f59c23979020817150a376cf573047b68682474"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-fox-grapes/ko-02.mp3",
+                                                          "duration":  31.346333,
+                                                          "sha256":  "f94082a86f2428fee8a4d6c250dec55d7a42c3bc77879f7be7a98d652dd6433b"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-fox-grapes/ko-03.mp3",
+                                                          "duration":  34.313,
+                                                          "sha256":  "fa07728855bfb320955d32b47376978e479877aee3ec5fe5ce150eb724e3b616"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-fox-grapes/ko-04.mp3",
+                                                          "duration":  33.086958,
+                                                          "sha256":  "56b8b1ae285425fe142dcee6b808678d3dc62cecc760895a1928d54ca83af004"
+                                                      }
+                                                  ]
+                                       },
+                  "aesop-hare-tortoise":  {
+                                              "en":  [
+                                                         {
+                                                             "src":  "/audio/classics/aesop-hare-tortoise/en-01.mp3",
+                                                             "duration":  24.755792,
+                                                             "sha256":  "4bb693180939b95b2fc1f2bc80c33c83f67e0b048a2631295db43619c4a69138"
+                                                         },
+                                                         {
+                                                             "src":  "/audio/classics/aesop-hare-tortoise/en-02.mp3",
+                                                             "duration":  28.145625,
+                                                             "sha256":  "cf41c149dff57113878608ea6f37e6edf8f7c139f921e9bedd574341f15ac588"
+                                                         },
+                                                         {
+                                                             "src":  "/audio/classics/aesop-hare-tortoise/en-03.mp3",
+                                                             "duration":  26.775667,
+                                                             "sha256":  "8cfb01dfd656ac7d39064a47d46d9698979ca86ae6a5ce24fc2d3cb8c70f5f77"
+                                                         },
+                                                         {
+                                                             "src":  "/audio/classics/aesop-hare-tortoise/en-04.mp3",
+                                                             "duration":  28.515,
+                                                             "sha256":  "60caba65108e45c71d2ec991b619938f648de0fcc9e78feef51164bc049cd0c7"
+                                                         }
+                                                     ],
+                                              "ko":  [
+                                                         {
+                                                             "src":  "/audio/classics/aesop-hare-tortoise/ko-01.mp3",
+                                                             "duration":  30.634792,
+                                                             "sha256":  "227b7bfd4299af427668b2f04168829ecb4f5c850048ac05b21227af40f0db22"
+                                                         },
+                                                         {
+                                                             "src":  "/audio/classics/aesop-hare-tortoise/ko-02.mp3",
+                                                             "duration":  31.735958,
+                                                             "sha256":  "d8f62c4accbc8a3458fadf533b37e1663cec94ccdc2fd1d0b166cb0b6e52d8ee"
+                                                         },
+                                                         {
+                                                             "src":  "/audio/classics/aesop-hare-tortoise/ko-03.mp3",
+                                                             "duration":  32.540375,
+                                                             "sha256":  "bda35c84cf445279b7f6588e5d56fbb345abfcbfe1af6eecb05cd728666d14c1"
+                                                         },
+                                                         {
+                                                             "src":  "/audio/classics/aesop-hare-tortoise/ko-04.mp3",
+                                                             "duration":  33.241958,
+                                                             "sha256":  "6afa3bee087e6ef7759826f181e96bba6e081daf9ac57639b2ffb8a10c72ccb2"
+                                                         }
+                                                     ]
+                                          },
+                  "heungbu-nolbu":  {
+                                        "en":  [
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/en-01.mp3",
+                                                       "duration":  34.945958,
+                                                       "sha256":  "6e3748f64a4c9af8acbf82f9c91e6c95f9646881e1156a0cd4d0b6c6e31dab1b"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/en-02.mp3",
+                                                       "duration":  31.99,
+                                                       "sha256":  "50fc11ed0b93b9baab9880774ec6c3cd9ba4f0fb2d1bd3f8ed91dc316a2818b2"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/en-03.mp3",
+                                                       "duration":  28.015208,
+                                                       "sha256":  "1c4eb2b78e8859cccadfa167dc1bf6a94cf22b5962179421ada3cc968a506652"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/en-04.mp3",
+                                                       "duration":  32.129125,
+                                                       "sha256":  "a1b9bcf407440425c53563c6f27fd252f7c6d6cd3b511d3a463d3a5c871494c5"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/en-05.mp3",
+                                                       "duration":  30.239833,
+                                                       "sha256":  "31994ebb233dfe90668afddddb73b06c4a11c69598be125238fb1bcc596ebbf4"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/en-06.mp3",
+                                                       "duration":  31.434417,
+                                                       "sha256":  "32b6fd10d9dc5adce41fbbe74c56ca53930bbbca75d1e9b41159d22cfc8f2d53"
+                                                   }
+                                               ],
+                                        "ko":  [
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/ko-01.mp3",
+                                                       "duration":  35.5265,
+                                                       "sha256":  "27c9eb2be430d3da8b6fdb2737de7322324b55a4925446ecfb58a940d5b3f2c8"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/ko-02.mp3",
+                                                       "duration":  36.265958,
+                                                       "sha256":  "ec33d497143ac135006237aeb7c0b4c8cde013ff393c11ade04e41d9c9c76f68"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/ko-03.mp3",
+                                                       "duration":  35.828917,
+                                                       "sha256":  "f741d354319af84eb143234448aabdf6b94c7d278a5c174b6ee5dd21998e854a"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/ko-04.mp3",
+                                                       "duration":  37.434083,
+                                                       "sha256":  "3bf24c08835276b7ea7837cce664de5a3b0a45a313354661b4b6231616860fed"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/ko-05.mp3",
+                                                       "duration":  36.17675,
+                                                       "sha256":  "4e8116e8cbd0d55f9b09b0a060cca2353a37dda59236e57b9d06e4c23cd6fa9e"
+                                                   },
+                                                   {
+                                                       "src":  "/audio/classics/heungbu-nolbu/ko-06.mp3",
+                                                       "duration":  36.521833,
+                                                       "sha256":  "dc9df74959426cf4b09080b0a3901b9f764721ab7b99274a4f92aa5c5335489e"
+                                                   }
+                                               ]
+                                    },
+                  "rabbit-turtle-king":  {
+                                             "en":  [
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/en-01.mp3",
+                                                            "duration":  32.579792,
+                                                            "sha256":  "25ad38b0fcf74f14aed3c27a6685d82c619434efa9dbf62cda838801902a4a62"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/en-02.mp3",
+                                                            "duration":  31.155042,
+                                                            "sha256":  "4ba7860b9c270d86c22a866bd148334fb18b9de9c2ce5c46b5624219be301dde"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/en-03.mp3",
+                                                            "duration":  32.305958,
+                                                            "sha256":  "f53c03e831147c5de9aaeb65cffa59a0ee394cd82e26922f39a980a4bafddfc5"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/en-04.mp3",
+                                                            "duration":  30.625958,
+                                                            "sha256":  "3e4f18c6cd14c8362fa41fea44feb13483591425ab78254c4a631ddf5cd464b6"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/en-05.mp3",
+                                                            "duration":  31.45425,
+                                                            "sha256":  "c6015e7f8dbae330c8530e11367a21a294811005989e5c9b00cb11e9b19b7358"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/en-06.mp3",
+                                                            "duration":  33.529958,
+                                                            "sha256":  "3beaa39dcbcc6f73aafef2d1e21208f5285aa4e395a048e0a8698381d0c03108"
+                                                        }
+                                                    ],
+                                             "ko":  [
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/ko-01.mp3",
+                                                            "duration":  37.55425,
+                                                            "sha256":  "c19e5a4fd5d2d1d445f1d390f8811789a33c4e45e02d0edcc320ff03fd879091"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/ko-02.mp3",
+                                                            "duration":  35.445542,
+                                                            "sha256":  "38926177a2e7846fe41535e7c03bc30be7d40b0aecbdf597c77df9f2b3ebdc4a"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/ko-03.mp3",
+                                                            "duration":  38.623417,
+                                                            "sha256":  "e63edc7726521362163f12d2cd3c2e666f9d230f4f39e411135f16d9349ca755"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/ko-04.mp3",
+                                                            "duration":  35.378292,
+                                                            "sha256":  "7b92f4d7b8159a4ada08ab90bf709e5f29a0d34d6b5eee2e94386e57610fbdfe"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/ko-05.mp3",
+                                                            "duration":  36.201707999999996,
+                                                            "sha256":  "7492de1586c474ffee7b7105f46c7f40545bb0aabf51447809809c149111ba99"
+                                                        },
+                                                        {
+                                                            "src":  "/audio/classics/rabbit-turtle-king/ko-06.mp3",
+                                                            "duration":  38.394708,
+                                                            "sha256":  "b78478722ef9a12a6cf7ce9aa04d0301b69de0d239c97df570f32c0c3dda46a0"
+                                                        }
+                                                    ]
+                                         },
+                  "aesop-lion-mouse":  {
+                                           "en":  [
+                                                      {
+                                                          "src":  "/audio/classics/aesop-lion-mouse/en-01.mp3",
+                                                          "duration":  24.680958,
+                                                          "sha256":  "a6fcbf44cc0dc2357e921b28e29a6f248131e9a42253388f998ece232458393c"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-lion-mouse/en-02.mp3",
+                                                          "duration":  24.361958,
+                                                          "sha256":  "3f18141216b01040e64f5021f9f50f7fb2bf1db86c950d4e1ea9af362809439c"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-lion-mouse/en-03.mp3",
+                                                          "duration":  25.695833,
+                                                          "sha256":  "ad55623425dee1e0ce859fcad5c0b8a491098c32b17b02db880b974cb587658d"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-lion-mouse/en-04.mp3",
+                                                          "duration":  27.320333,
+                                                          "sha256":  "e19590127b6a46729a15a4961b79ca7967f807ae59c7ce09c11c4030e5c12c0f"
+                                                      }
+                                                  ],
+                                           "ko":  [
+                                                      {
+                                                          "src":  "/audio/classics/aesop-lion-mouse/ko-01.mp3",
+                                                          "duration":  28.921958,
+                                                          "sha256":  "d0e206e635dd1f585c167d9ec2bfabc2a04beb05aee0ab0a5fab872785a7daf4"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-lion-mouse/ko-02.mp3",
+                                                          "duration":  30.83025,
+                                                          "sha256":  "2caee820f6ac2c9e0a8a732438598301974391664c9bc08163dfbf0dc3440bad"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-lion-mouse/ko-03.mp3",
+                                                          "duration":  32.545958,
+                                                          "sha256":  "05b0ab4be98beec62c0a929b7096fb3edf5a9781a5a0e5c1b89d05a8f36e93a3"
+                                                      },
+                                                      {
+                                                          "src":  "/audio/classics/aesop-lion-mouse/ko-04.mp3",
+                                                          "duration":  32.513083,
+                                                          "sha256":  "c2b1867c391accf436696bef2644a1ca2abf189cab883d894d1556862ee231ec"
+                                                      }
+                                                  ]
+                                       },
+                  "aesop-town-country-mouse":  {
+                                                   "en":  [
+                                                              {
+                                                                  "src":  "/audio/classics/aesop-town-country-mouse/en-01.mp3",
+                                                                  "duration":  25.745792,
+                                                                  "sha256":  "107952bf152907be5bc426954a29dc801b462736c4620d65cc03a3fdf6706207"
+                                                              },
+                                                              {
+                                                                  "src":  "/audio/classics/aesop-town-country-mouse/en-02.mp3",
+                                                                  "duration":  28.555583,
+                                                                  "sha256":  "50b9e785a372f7c0554b03c88281d2d78d745a2bc45986a3d3f4e84ab393512a"
+                                                              },
+                                                              {
+                                                                  "src":  "/audio/classics/aesop-town-country-mouse/en-03.mp3",
+                                                                  "duration":  29.679792,
+                                                                  "sha256":  "ee9ba4be355268dd86e52e7f2451b8bd6ebaa6a1926df069cb132adbbfdd07b7"
+                                                              },
+                                                              {
+                                                                  "src":  "/audio/classics/aesop-town-country-mouse/en-04.mp3",
+                                                                  "duration":  29.31,
+                                                                  "sha256":  "7be986328681e962aa61b3f9f2b72ab6e0e212796c1f094ecb498d64aa95a779"
+                                                              }
+                                                          ],
+                                                   "ko":  [
+                                                              {
+                                                                  "src":  "/audio/classics/aesop-town-country-mouse/ko-01.mp3",
+                                                                  "duration":  28.441958,
+                                                                  "sha256":  "9a6db6fdb8119ee7fe40c9046b8601b6c90655216be0617237d9cad35ac7839c"
+                                                              },
+                                                              {
+                                                                  "src":  "/audio/classics/aesop-town-country-mouse/ko-02.mp3",
+                                                                  "duration":  34.422125,
+                                                                  "sha256":  "c9814f0b6d4c855cacf3f468d29c1e14174a347bc2ff04aad3309db03a15d174"
+                                                              },
+                                                              {
+                                                                  "src":  "/audio/classics/aesop-town-country-mouse/ko-03.mp3",
+                                                                  "duration":  35.476167,
+                                                                  "sha256":  "3960d689005999530eec9c9af9df1f7cbb44be39d7c005a8e09d05fea7aa0c09"
+                                                              },
+                                                              {
+                                                                  "src":  "/audio/classics/aesop-town-country-mouse/ko-04.mp3",
+                                                                  "duration":  33.106583,
+                                                                  "sha256":  "a284b8b7ae5d099c02921c5f5dbdba42dfc6d440e2eb901caceee8879e50c1f5"
+                                                              }
+                                                          ]
+                                               },
+                  "old-man-lump":  {
+                                       "en":  [
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/en-01.mp3",
+                                                      "duration":  32.199833,
+                                                      "sha256":  "4e75829bfca9537081e59f9041b14ccf04c9bdb640771a5454986d80cf9e1698"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/en-02.mp3",
+                                                      "duration":  32.949417,
+                                                      "sha256":  "097377a4acb1e9a87a45b9db3607e293a97647cc7e5e694a7394d1a688624e02"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/en-03.mp3",
+                                                      "duration":  31.109083,
+                                                      "sha256":  "da03dc710988dccab2a53cd8b948bed1dba6659ecc133bfc00dc7938765f58c7"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/en-04.mp3",
+                                                      "duration":  31.959458,
+                                                      "sha256":  "3ec2989a8cd8302ab8b3de588fb693369af11a0fece481529d4247589d1363de"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/en-05.mp3",
+                                                      "duration":  31.374917,
+                                                      "sha256":  "65bfbbbfa2440b3592090b6f47c2a785c24ad7893c84291a54c38d7b1f498df6"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/en-06.mp3",
+                                                      "duration":  33.498333,
+                                                      "sha256":  "b4f5c41b3cbce1f90a69a8fd50bc483a48f5c2ccc0ae22e57eda794f46abb787"
+                                                  }
+                                              ],
+                                       "ko":  [
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/ko-01.mp3",
+                                                      "duration":  37.277833,
+                                                      "sha256":  "7787e0d7369be7dab81cb64aa4bb92de37b589b1b0d62486a53086aca750b098"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/ko-02.mp3",
+                                                      "duration":  36.389792,
+                                                      "sha256":  "ae7dfc37ec3ba493f844c30fb7faf5ebcdf422829b2e52119f65557c93493be4"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/ko-03.mp3",
+                                                      "duration":  37.185042,
+                                                      "sha256":  "07dc49e64b46f5cab997dc4e22298e4df56d82cb12f4f3d6593ee82afdb87f76"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/ko-04.mp3",
+                                                      "duration":  37.086417,
+                                                      "sha256":  "6b3117a9b29f7f6c99be24f6c1d4421d764d4381eeafb643c598914c13658af3"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/ko-05.mp3",
+                                                      "duration":  35.311,
+                                                      "sha256":  "51421ae02624ed70471bc05a282266ffc4d36dce5b8d6435a18c1e1cc7eb1489"
+                                                  },
+                                                  {
+                                                      "src":  "/audio/classics/old-man-lump/ko-06.mp3",
+                                                      "duration":  37.907292,
+                                                      "sha256":  "622d85855f5da570aefad75d5795080438c0f7f69b2db2ef17c687220ca1f68c"
+                                                  }
+                                              ]
+                                   }
+              }
+}

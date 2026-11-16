@@ -1,0 +1,23 @@
+node_modules/
+.npm-cache/
+.next/
+out/
+dist/
+.env*
+!.env.example
+*.tsbuildinfo
+.vercel/
+*.log
+*firebase-adminsdk*.json
+service-account*.json
+coverage/
+/.local/
+
+# Local exports and verification images; keep shipped public assets tracked.
+/output/
+/tmp/
+/artifacts/**/*.png
+/artifacts/**/*.jpg
+/artifacts/**/*.jpeg
+/artifacts/**/*.webp
+/artifacts/**/*.pdf

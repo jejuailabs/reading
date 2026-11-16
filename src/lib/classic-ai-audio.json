@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "provider": "openai",
+  "model": "tts-1-hd",
+  "books": {
+    "heungbu-nolbu": {
+      "ko": {
+        "src": "/audio/classics-ai/heungbu-nolbu/ko.mp3",
+        "duration": 180.624,
+        "sha256": "2e2b092e2624ac3bad5f3b7423caa5a93493f63e2a22d87ddeb63c6906414a5c",
+        "characters": 1272,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "ca3de1cb50370aa48c9fcae14fe9352f0383da4768f71f56013b99751449795e",
+        "audioSha256": "f9310bfb533ec8160b7f5ba2389a02f224326e5db86b3a60e17da5fe4894c24e",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:08:56.502Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    },
+    "sun-moon-siblings": {
+      "ko": {
+        "src": "/audio/classics-ai/sun-moon-siblings/ko.mp3",
+        "duration": 182.712,
+        "sha256": "3e59a6e5b45440a57f489a9c45fb0abe01459e2500ef1a59a15984fb6ad174e7",
+        "characters": 1283,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "89ca8173c5c0e770aff8e3d7a7ebb07b3ab5273441621aae4f1b9f405a54c0c9",
+        "audioSha256": "bc7d55b4b7ec28f20a4298584f029e3e3f62a1b10659c80c374f735b18b1894f",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:10:07.820Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    },
+    "old-man-lump": {
+      "ko": {
+        "src": "/audio/classics-ai/old-man-lump/ko.mp3",
+        "duration": 187.896,
+        "sha256": "3d5be92d40bf014afc2d0b1f1449d4150b8a3a5d2a484b7fa7a541dd3c5395b8",
+        "characters": 1347,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "c4b70452277edcbaeb23ebba45dae2cd2e462d2f4a4de10e71394b6c818335b0",
+        "audioSha256": "49b97b788ec7d94327180110127f1ca6c35ec0c581a7f41997a793211e5c6a0f",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:10:25.344Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    },
+    "rabbit-turtle-king": {
+      "ko": {
+        "src": "/audio/classics-ai/rabbit-turtle-king/ko.mp3",
+        "duration": 189.456,
+        "sha256": "0053a542d71719e95b6d2d08b2594dc1f644bb01d5fcd3f70aa61686311006e1",
+        "characters": 1332,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "67ed11c07f88e61a0b50cfb49a88be8818a2bb80e77b2c1dc08613ea6a1c73a8",
+        "audioSha256": "4a58ba259896713a59661565b68cf21be39366cb4bf0d0c8ba059d01e8774fd3",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:10:45.037Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    },
+    "kind-brothers": {
+      "ko": {
+        "src": "/audio/classics-ai/kind-brothers/ko.mp3",
+        "duration": 190.392,
+        "sha256": "c2707f1dbda33dca61046099b1e56648b180ab2303dabca1293a3bb5417244c1",
+        "characters": 1346,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "e025ed66751cddbd1e50718f22abf0823d083fb3399572f1c0b1332f54294f85",
+        "audioSha256": "99be3d369712fef2419553edbfa360d1818c18d82a0ecdb27d8d32db91ae3480",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:11:02.644Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    },
+    "aesop-hare-tortoise": {
+      "ko": {
+        "src": "/audio/classics-ai/aesop-hare-tortoise/ko.mp3",
+        "duration": 106.872,
+        "sha256": "cdb7b41afa6d3f6e6ca216d5389edcb9801f19f97d230774dfa6bc993ae74913",
+        "characters": 749,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "f5501398c746512f101eecfb7dcc4b0483d57b6473aa5ad3bb5034aad10e7c43",
+        "audioSha256": "ab4b12c4adfd5322f5ca6c8aa29d1ddb268c7e0a1a250e3a25a9937f76addb71",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:11:13.945Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    },
+    "aesop-lion-mouse": {
+      "ko": {
+        "src": "/audio/classics-ai/aesop-lion-mouse/ko.mp3",
+        "duration": 105.144,
+        "sha256": "51e9faa3b2f7737a7f97fc59d69981d9805bdbdb815df27d2202ff86bece2be3",
+        "characters": 734,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "8403640a72df3b415f6d4444942dbec3e0e3d6d6e5ffd1a42c4fd2f26bb97f6d",
+        "audioSha256": "52224b0053d9ff6918b2b7767bb25e530c178e9ca95f3517d6d4f24a3fa1031f",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:11:25.159Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    },
+    "aesop-fox-grapes": {
+      "ko": {
+        "src": "/audio/classics-ai/aesop-fox-grapes/ko.mp3",
+        "duration": 106.488,
+        "sha256": "1e3083d939f421ab34be9936228f3decbf7a4f5b7e6cdfbe7e80c2a490f14786",
+        "characters": 761,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "56b61b6f20deffb1bb7b2177aefec1f909ef2e63abffcd23302013e2e38a7b99",
+        "audioSha256": "41e26619747a7360b9e5974c8a8e1e168263c9395f78bf3b267479f9b4193ff0",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:11:37.978Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    },
+    "aesop-wind-sun": {
+      "ko": {
+        "src": "/audio/classics-ai/aesop-wind-sun/ko.mp3",
+        "duration": 106.704,
+        "sha256": "bc701ffe5d49ae2525fc15a53b33feb8b39925493b9d85ebb5ef670c6b0c6ef6",
+        "characters": 751,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "d98e47d3ae2d0d49c374db4f5235f15e54197b9407fbd51fcf60dfd0ae42b547",
+        "audioSha256": "563d8f2547108b9e5c575623fadf1d677c3b80a0c908704220be4699b15f5094",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:11:54.404Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    },
+    "aesop-town-country-mouse": {
+      "ko": {
+        "src": "/audio/classics-ai/aesop-town-country-mouse/ko.mp3",
+        "duration": 109.176,
+        "sha256": "a02afe6137eca8426dc4a597b277d46acc51f60c81fab8c57221b1595a5e2729",
+        "characters": 784,
+        "model": "tts-1-hd",
+        "voice": "nova",
+        "speed": 0.95,
+        "cacheKey": "9c6131cc39066199808a6d8ef43e0049c0d5e9927c92fa227b3b4c952eb172c2",
+        "audioSha256": "945c0b17e0dbb6a209d592be3da54eef78ad29c0e099bf6cac9516d0c7758f02",
+        "revision": 1,
+        "generatedAt": "2026-11-16T03:12:11.849Z",
+        "disclosure": "AI가 만든 낭독 음성입니다."
+      }
+    }
+  }
+}
