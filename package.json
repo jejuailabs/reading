@@ -8,6 +8,7 @@
     "start": "next start --hostname 127.0.0.1 --port 3100",
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:auth-runtime": "node scripts/verify-auth-production.mjs",
     "prebuild": "node scripts/sync-pdf-worker.mjs"
   },
   "dependencies": {
