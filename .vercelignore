@@ -1,0 +1,32 @@
+# Vercel CLI uploads do not apply .gitignore rules.
+# Upload only the production app, its public assets, and build inputs.
+*
+!/src
+!/src/**
+!/public
+!/public/**
+!/scripts
+!/scripts/sync-pdf-worker.mjs
+!package.json
+!package-lock.json
+!next.config.ts
+!next-env.d.ts
+!tsconfig.json
+!vercel.json
+
+# Keep local credentials and caches excluded even inside allowed directories.
+.env*
+**/.env*
+*firebase-adminsdk*.json
+service-account*.json
+node_modules/
+.git/
+.vercel/
+.next/
+.local/
+.npm-cache/
+artifacts/
+output/
+tmp/
+*.log
+*.tsbuildinfo

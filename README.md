@@ -1,5 +1,11 @@
 # 온책읽기
 
+[서비스 열기](https://reading-bice-six.vercel.app) · [GitHub 저장소](https://github.com/jejuailabs/reading)
+
+2026-11-16에 `jejuai/reading`으로 첫 프로덕션 배포를 완료했다. 배포된 앱 소스는 `6aa8393`이며, [배포 후 검증](artifacts/production-verification.md)에서 읽기·기존 음원 재생·책과 활동지 PDF 다운로드를 확인했다. 현재 기기 저장형 미리보기이며 Firebase 로그인·서버 동기화·운영 AI는 연결되지 않았다.
+
+이번 승인 범위는 초기 배포 1회와 공개 호스팅이다. `vercel.json`의 `git.deploymentEnabled: false`로 이후 Git push가 추가 유료 빌드를 자동 실행하지 않도록 한다. 다음 배포는 비용 범위를 승인받은 뒤 수동 실행한다. `.vercelignore`는 향후 CLI 배포에 앱 실행·빌드 파일만 포함하도록 제한한다.
+
 책을 가져와 읽고 듣고, 자기 질문과 생각을 기록하고, 새 책을 만들어 다시 읽는 초등 독서 공간입니다. 사용자가 선택한 밝은 색연필 그림과 흰 여백을 디자인 기준으로 삼습니다.
 
 현재는 **브라우저 IndexedDB에 보관하는 로컬 작업 공간**입니다. 실제 학교 계정·Firebase 클라우드 저장·실시간 공동 편집은 연결되지 않았습니다. 역할 선택은 화면 미리보기이며 서버 권한이 아닙니다.

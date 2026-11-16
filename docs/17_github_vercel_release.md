@@ -1,4 +1,31 @@
-# GitHub · Vercel 배포 준비 기록
+# GitHub · Vercel 배포 기록
+
+## 현재 상태: Production Ready · 2026-11-16
+
+**사용자의 추가 비용 명시 승인 후 최초 운영 배포 1회를 완료했다.** 현재 사이트는 [https://reading-bice-six.vercel.app](https://reading-bice-six.vercel.app)이며, 배포된 GitHub `main` 커밋은 `6aa8393`이다. 아래 배포 완료 식별 정보는 root의 실제 배포 결과에서 인계받았으며, 공개 HTTP 응답과 운영 브라우저 동작은 별도로 확인했다.
+
+| 항목 | 현재 배포 |
+|---|---|
+| 운영 URL | `https://reading-bice-six.vercel.app` |
+| GitHub | `https://github.com/jejuailabs/reading` · `main` · `6aa8393` |
+| Vercel 상태 | Ready · Production |
+| 팀 / 프로젝트 | `jejuai` / `reading` |
+| 프로젝트 ID | `prj_tEa5OhXkSYDAlIo3xDS4SDgcORnc` |
+| 배포 ID | `dpl_Ex4hkhbqeHiGrSxrxrrSiUicgpvL` |
+
+- 홈·서재·공방과 로컬 글꼴·주요 아이콘·저장된 MP3·PDF worker를 포함한 11개 경로의 HTTP 200을 확인했다.
+- 텍스트·이미지 AI GET은 각각 `503 / AI_APPROVAL_REQUIRED`, `503 / IMAGE_APPROVAL_REQUIRED`를 반환했다. 새 생성 요청이나 AI POST 시험은 하지 않았다.
+- 운영 브라우저에서 책갈피 추가·장면 이동, 기존 저장 낭독 재생 후 일시정지, 책 전체 PDF와 FORM-03 빈 양식 PDF 다운로드를 확인했다. 다운로드된 파일은 각각 A5 7쪽·A4 2쪽이며 한글 글꼴과 본문, 렌더링을 검사했다.
+- 증거와 검사 범위는 [운영 검증 기록](../artifacts/production-verification.md)에 남겼다.
+- 이 문서와 사후 검증 기록은 배포 후 로컬 파일 갱신이다. **이 갱신에서는 Git 원격 push·추가 배포를 하지 않았다.** 최초 승인 범위를 다음 유료 작업이나 자동 재배포의 포괄 승인으로 해석하지 않는다.
+
+### 최초 업로드 범위와 후속 배포 제어
+
+root의 Vercel CLI 48 경로 검토 결과, CLI 소스 업로드에는 `.gitignore` 제외 규칙이 그대로 적용되지 않았다. 최초 소스 업로드는 204.7MB였고 로컬 검증 자료·라이브러리가 포함됐을 가능성이 있다. root는 `.env.local`의 CLI 기본 제외 코드를 확인했으며, 원격 빌드에서 해당 환경 파일 로딩이 없고 비밀값 패턴 검사에 명중이 없었다고 확인했다. 이는 첫 업로드의 모든 불필요 파일이 제외됐다는 뜻은 아니다. 후속 배포 전에는 `.vercelignore` 허용목록을 추가해 필요한 소스·lockfile·정적 자산·빌드 스크립트만 보내도록 준비한다. 현재 배포를 다시 실행하지 않았다. 또한 root는 공식 문서에 따라 `vercel.json`에 `git.deploymentEnabled=false`를 작성해 후속 Git push의 자동 빌드·배포 비용을 방지하도록 준비했다. README에도 운영 URL, 아직 연결하지 않은 운영 기능, 수동 후속 배포의 승인 범위를 반영했다. 이번 사용자 승인은 초기 배포 1회이며, 후속 수동 배포는 별도 범위 확인 없이 실행하지 않는다. 이 문서 편집 담당자는 Git push나 원격 설정 변경을 수행하지 않았고, 자동 배포 차단의 최종 원격 확인은 root의 후속 메타데이터 반영 검증 범위다.
+
+## 아래 내용의 시점
+
+이하 준비 기록의 “배포하지 않았다”, “승인 전”, “push 미실행” 등은 **최초 배포 전 당시 상태**를 보존한 것이다. 현재 운영 상태는 위의 Production Ready 항목을 따른다.
 
 ## 최종 로컬 릴리스 후보 · 2026-11-16
 
