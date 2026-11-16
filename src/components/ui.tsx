@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Link from "./workspace-link";
 import type { Book } from "@/lib/model";
 import { BookArtwork, CollectionArtwork } from "./artwork";
 import { Icon } from "./icons";

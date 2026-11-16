@@ -1,6 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import NextLink from "next/link";
+import Link from "./workspace-link";
+import { usePathname } from "next/navigation";
+import { useAuth } from "./auth-provider";
+import { DemoTour } from "./demo-tour";
 import { useState } from "react";
 import { catalog } from "@/lib/catalog";
 import { activities, attachBook, type Activity } from "@/lib/model";
@@ -36,27 +40,59 @@ export const activityInfo: Record<Activity, {ko: string; en: string; sub: string
 
 export function ReadingApp({route, query}: {route: string[]; query: Record<string, string>}) {
   const {state, setState, ready, storageOk, t} = useReading();
+  const {user, busy, error, signOut} = useAuth();
+  const pathname = usePathname();
+  const demo = pathname === "/demo" || pathname.startsWith("/demo/");
   const [mobileNav, setMobileNav] = useState(false);
   const view = route[0] || "home";
   const books = [...catalog, ...state.published, ...state.imported];
   const currentBook = books.find(b => b.id === route[1]);
   const activeKey = view === "reader" || view === "learn" ? "library" : view;
   const title = nav.find(n => n.key === activeKey);
-  return <div className="app-shell">
+  const role = demo ? state.role : user?.role ?? "member";
+  const teacherAccess = role === "teacher" || role === "admin";
+  const adminAccess = role === "admin";
+  const displayName = user?.displayName || t("나의 계정", "My account");
+  const roleLabel = role === "admin" ? t("관리자", "Administrator") : role === "teacher" ? t("선생님", "Teacher") : role === "student" ? t("학생", "Student") : t("회원", "Member");
+  const pageTitle = title ? t(title.ko, title.en) : view === "guide" ? t("사용 안내", "Guide") : view === "teach" ? t("수업 구성", "Lesson planner") : view === "reader" ? t("책 읽기", "Reader") : t("운영 현황", "Operations");
+  const protectedViewAllowed = view === "admin" ? adminAccess : teacherAccess;
+
+  return <div className={`app-shell ${demo ? "demo-workspace" : "real-workspace"}`}>
     <a href="#main-content" className="skip-link">{t("본문 바로가기", "Skip to content")}</a>
     {mobileNav ? <button className="nav-backdrop" aria-label={t("메뉴 닫기", "Close menu")} onClick={() => setMobileNav(false)}/> : null}
     <aside className={`sidebar ${mobileNav ? "open" : ""}`}>
       <Link href="/" className="brand" onClick={() => setMobileNav(false)}><span className="brand-mark"><Icon name="book" size={28}/><span/></span><span>온책읽기<small>READ. WONDER. CREATE.</small></span></Link>
-      <div className="class-label"><span className="class-icon"><Icon name="leaf" size={18}/></span><span>{t("우리들의 이야기 교실", "Our story classroom")}<small>{t("3학년 2반 · 샘플 학급", "Grade 3 · Sample class")}</small></span></div>
+      <div className="class-label"><span className="class-icon"><Icon name="leaf" size={18}/></span><span>{demo ? t("함께 둘러보는 이야기 교실", "Explore our story classroom") : t("나의 이야기 공간", "My story workspace")}<small>{demo ? t("샘플 책으로 자유롭게 체험해요", "Explore freely with sample books") : displayName}</small></span></div>
       <div className="nav-caption">OUR LITTLE WORLD</div>
       <nav aria-label={t("주 메뉴", "Main navigation")}>{nav.map(n => <Link key={n.key} href={n.href} className={`nav-link ${activeKey === n.key ? "active" : ""}`} aria-current={activeKey === n.key ? "page" : undefined} onClick={() => setMobileNav(false)}><Icon name={n.icon}/><span>{t(n.ko, n.en)}</span>{activeKey === n.key ? <span className="nav-dot"/> : null}</Link>)}</nav>
-      {state.role !== "student" ? <div className="teacher-nav"><div className="nav-caption">CLASSROOM TOOLS</div><Link href="/teach" className={`nav-link ${view === "teach" ? "active" : ""}`} onClick={() => setMobileNav(false)}><Icon name="settings"/>{t("수업 구성", "Lesson planner")}</Link><Link href="/admin" className={`nav-link ${view === "admin" ? "active" : ""}`} onClick={() => setMobileNav(false)}><Icon name="shield"/>{t("운영 현황", "Operations")}</Link></div> : null}
-      <Link href="/guide" className="nav-link"><Icon name="book"/>{t("사용 안내 · 백업", "Guide & backup")}</Link><div className="sidebar-bottom"><div className="small-note"><Icon name="sparkle" size={18}/><span>{t("정답보다 소중한 건,", "Every good story begins")}<br/><strong>{t("나만의 궁금함.", "with your own question.")}</strong></span></div><label className="role-picker"><span className="avatar">{state.role === "student" ? "S" : "T"}</span><span><small>{t("화면 미리보기", "Preview as")}</small><select aria-label={t("미리보기 역할", "Preview role")} value={state.role} onChange={e => setState(s => ({...s, role: e.target.value as typeof s.role}))}><option value="student">{t("학생", "Student")}</option><option value="teacher">{t("선생님", "Teacher")}</option><option value="admin">{t("관리자", "Administrator")}</option></select></span><Icon name="chevron" size={15}/></label></div>
+      {teacherAccess ? <div className="teacher-nav"><div className="nav-caption">CLASSROOM TOOLS</div><Link href="/teach" className={`nav-link ${view === "teach" ? "active" : ""}`} onClick={() => setMobileNav(false)}><Icon name="settings"/>{t("수업 구성", "Lesson planner")}</Link>{adminAccess ? <Link href="/admin" className={`nav-link ${view === "admin" ? "active" : ""}`} onClick={() => setMobileNav(false)}><Icon name="shield"/>{t("운영 현황", "Operations")}</Link> : null}</div> : null}
+      <Link href="/guide" className="nav-link" onClick={() => setMobileNav(false)}><Icon name="book"/>{t("사용 안내 · 백업", "Guide & backup")}</Link>
+      <NextLink href="/" className="nav-link sidebar-service-link" onClick={() => setMobileNav(false)}><Icon name="back" size={17}/>{t("서비스 소개", "About Onbook")}</NextLink>
+      <div className="sidebar-bottom">
+        <div className="small-note"><Icon name="sparkle" size={18}/><span>{t("정답보다 소중한 건,", "Every good story begins")}<br/><strong>{t("나만의 궁금함.", "with your own question.")}</strong></span></div>
+        {demo ? <label className="role-picker"><span className="avatar">{state.role === "student" ? "S" : state.role === "teacher" ? "T" : "A"}</span><span><small>{t("체험할 역할", "Explore a role")}</small><select aria-label={t("체험할 역할", "Demo role")} value={state.role} onChange={event => setState(previous => ({...previous, role: event.target.value as typeof previous.role}))}><option value="student">{t("학생 체험", "Student demo")}</option><option value="teacher">{t("선생님 체험", "Teacher demo")}</option><option value="admin">{t("관리자 체험", "Admin demo")}</option></select></span><Icon name="chevron" size={15}/></label> : <><div className="workspace-account"><span className="avatar" aria-hidden="true">{displayName.slice(0, 1)}</span><div><strong>{displayName}</strong><small>{roleLabel} · {t("Google 계정", "Google account")}</small></div></div><button type="button" className="button ghost workspace-signout" disabled={busy} onClick={() => void signOut()}>{t(busy ? "잠시만 기다려 주세요" : "로그아웃", busy ? "Please wait" : "Sign out")}</button></>}
+      </div>
     </aside>
-    <div className="app-main"><header className="topbar"><div className="row"><button className="icon-button mobile-menu" onClick={() => setMobileNav(true)} aria-label={t("메뉴 열기", "Open menu")}><Icon name="menu"/></button><span className="breadcrumb">{t("우리의 공간", "Our space")}<Icon name="chevron" size={13}/><strong>{title ? t(title.ko, title.en) : view === "guide" ? t("사용 안내", "Guide") : view === "teach" ? t("수업 구성", "Lesson planner") : t("운영 현황", "Operations")}</strong></span></div><div className="topbar-actions"><span className="preview-badge"><span/>{t("로컬 미리보기", "Local preview")}</span><button className="locale-button" onClick={() => setState(s => ({...s, locale: s.locale === "ko" ? "en" : "ko"}))} aria-label={t("영어로 전환", "Switch to Korean")}>{state.locale === "ko" ? "KO" : "EN"}<span>⌄</span></button><button className="icon-button" aria-label={t(state.theme === "light" ? "다크 모드로 전환" : "라이트 모드로 전환", state.theme === "light" ? "Switch to dark mode" : "Switch to light mode")} onClick={() => setState(s => ({...s, theme: s.theme === "light" ? "dark" : "light"}))}><Icon name={state.theme === "light" ? "sun" : "moon"}/></button></div></header>
+    <div className="app-main">
+      <header className="topbar"><div className="row"><button className="icon-button mobile-menu" onClick={() => setMobileNav(true)} aria-label={t("메뉴 열기", "Open menu")} aria-expanded={mobileNav}><Icon name="menu"/></button><span className="breadcrumb">{demo ? t("체험 교실", "Demo classroom") : t("나의 공간", "My workspace")}<Icon name="chevron" size={13}/><strong>{pageTitle}</strong></span></div><div className="topbar-actions"><span className="workspace-mode-badge"><span/>{demo ? t("자유롭게 체험 중", "Demo mode") : t("Google 로그인됨", "Signed in with Google")}</span><button className="locale-button" onClick={() => setState(previous => ({...previous, locale: previous.locale === "ko" ? "en" : "ko"}))} aria-label={t("영어로 전환", "Switch to Korean")}>{state.locale === "ko" ? "KO" : "EN"}<span>⌄</span></button><button className="icon-button" aria-label={t(state.theme === "light" ? "다크 모드로 전환" : "라이트 모드로 전환", state.theme === "light" ? "Switch to dark mode" : "Switch to light mode")} onClick={() => setState(previous => ({...previous, theme: previous.theme === "light" ? "dark" : "light"}))}><Icon name={state.theme === "light" ? "sun" : "moon"}/></button></div></header>
       <main id="main-content" className={`content view-${view}`}>
-        {!ready ? <div className="loading"><Icon name="leaf"/>{t("이야기를 펼치는 중이에요…", "Opening our story…")}</div> : view === "home" ? <Journey/> : view === "library" ? route[1] === "add" ? <BookIntake/> : <Library/> : view === "guide" ? <WorkspaceGuide/> : view === "learn" ? currentBook ? <LearningHub book={currentBook} query={query}/> : <Empty title={t("책을 먼저 골라 주세요", "Choose a book first")} description={t("서재에서 읽을 책을 선택하세요.", "Select a book from the library.")}/> : view === "reader" ? currentBook ? <ReaderWorkspace book={currentBook} query={query}/> : <Empty title={t("이 책을 찾을 수 없어요", "Book not found")} description={t("서재에서 책을 다시 선택해 주세요. 자료는 저장한 기기에서 확인할 수 있습니다.", "Choose a book from the library. Your local work is available on the device where it was saved.")}/> : view === "inquiry" ? <InquiryWorkspace query={query}/> : view === "theater" ? <TheaterWorkspace query={query}/> : view === "studio" ? <BookWorkshop query={query}/> : view === "studio-legacy" ? <StudioWorkspace query={query}/> : view === "my-work" ? <><BookEntryLinks/><Records/></> : view === "teach" || view === "admin" ? state.role === "student" ? <Empty title={t("선생님 화면에서 살펴보세요", "Switch to teacher preview")} description={t("왼쪽 아래에서 미리보기 역할을 변경할 수 있습니다. 실제 계정 권한은 아직 연결되지 않았습니다.", "Change the preview role at the bottom of the sidebar. Real account permissions are not connected yet.")}/> : view === "teach" ? <TeacherWorkspace/> : <AdminWorkspace/> : <Empty title={t("길을 잠시 벗어났어요", "This path is not here")} description={t("왼쪽 메뉴에서 이야기를 이어가세요.", "Continue from the navigation menu.")}/>}
-      </main><footer className="app-footer"><span><span className={`status-dot ${storageOk ? "" : "warning"}`}/>{storageOk ? t("작업은 이 기기에 저장됩니다 · 사용 안내에서 백업", "Saved on this device · Back up from the guide") : t("저장 공간을 사용할 수 없어 새로고침 시 작업이 사라질 수 있습니다", "Storage unavailable. Work may be lost on refresh.")}</span><span>{t("실제 학생 정보는 입력하지 마세요 · Firebase 미연결", "Do not enter real student data · Firebase offline")}</span></footer>
+        {error ? <p className="form-error workspace-auth-error" role="alert">{error}</p> : null}
+        {ready && demo ? <DemoTour key={view} compact={view !== "home"}/> : null}
+        {!ready ? <div className="loading"><Icon name="leaf"/>{t("이야기를 펼치는 중이에요…", "Opening our story…")}</div>
+          : view === "home" ? <Journey/>
+          : view === "library" ? route[1] === "add" ? <BookIntake/> : <Library/>
+          : view === "guide" ? <WorkspaceGuide/>
+          : view === "learn" ? currentBook ? <LearningHub book={currentBook} query={query}/> : <Empty title={t("책을 먼저 골라 주세요", "Choose a book first")} description={t("서재에서 읽을 책을 선택하세요.", "Select a book from the library.")}/>
+          : view === "reader" ? currentBook ? <ReaderWorkspace book={currentBook} query={query}/> : <Empty title={t("이 책을 찾을 수 없어요", "Book not found")} description={t("서재에서 책을 다시 선택해 주세요. 자료는 저장한 기기에서 확인할 수 있습니다.", "Choose a book from the library. Work is available on the device where it was saved.")}/>
+          : view === "inquiry" ? <InquiryWorkspace query={query}/>
+          : view === "theater" ? <TheaterWorkspace query={query}/>
+          : view === "studio" ? <BookWorkshop query={query}/>
+          : view === "studio-legacy" ? <StudioWorkspace query={query}/>
+          : view === "my-work" ? <><BookEntryLinks/><Records/></>
+          : view === "teach" || view === "admin" ? protectedViewAllowed ? view === "teach" ? <TeacherWorkspace/> : <AdminWorkspace/> : <Empty title={demo ? t("역할을 바꿔 체험해 보세요", "Explore another role") : t("접근 권한을 확인해 주세요", "Check your access")} description={demo ? t("왼쪽 아래 ‘체험할 역할’에서 선생님이나 관리자를 선택하세요. 체험 역할은 실제 계정 권한과 별개예요.", "Choose teacher or administrator under Demo role. This does not change real account permissions.") : t("이 공간은 승인된 교사 또는 관리자가 사용할 수 있어요.", "This workspace requires an approved teacher or administrator account.")}/>
+          : <Empty title={t("길을 잠시 벗어났어요", "This path is not here")} description={t("왼쪽 메뉴에서 이야기를 이어가세요.", "Continue from the navigation menu.")}/>}
+      </main>
+      <footer className="app-footer"><span><span className={`status-dot ${storageOk ? "" : "warning"}`}/>{storageOk ? t("작업은 이 기기에 저장됩니다 · 사용 안내에서 백업", "Saved on this device · Back up from the guide") : t("저장 공간을 사용할 수 없어 새로고침 시 작업이 사라질 수 있습니다", "Storage unavailable. Work may be lost on refresh.")}</span><span>{demo ? t("체험용 공간 · 실제 학생 정보는 입력하지 마세요", "Demo workspace · Use fictional student details") : t("계정별 작업 공간 · 기기 간 동기화는 제공하지 않아요", "Personal workspace · Cross-device sync is not available")}</span></footer>
     </div>
   </div>;
 }

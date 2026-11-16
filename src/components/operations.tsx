@@ -1,6 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./workspace-link";
+import { usePathname } from "next/navigation";
+import { useAuth } from "./auth-provider";
 import { activities, attachBook, recordEvent, setActivityEnabled, type Activity } from "@/lib/model";
 import { catalog } from "@/lib/catalog";
 import { Icon, type IconName } from "./icons";
@@ -38,16 +40,16 @@ export function TeacherWorkspace() {
       <header className="page-heading">
         <div>
           <p className="eyebrow">{t("교사 수업 준비실", "TEACHER WORKSPACE")}</p>
-          <h1>{t("우리 반 이야기 여정", "Our class story journey")}</h1>
+          <h1>{t("수업 이야기 여정", "Our lesson story journey")}</h1>
           <p className="muted">{t("오늘 읽을 책과 필요한 활동만 골라 주세요. 여정에 넣지 않은 활동도 작업실에서 따로 시작할 수 있어요.", "Choose a book and just the activities you need. Every workspace can also be opened on its own.")}</p>
         </div>
-        <Link className="button secondary" href="/"><Icon name="map" />{t("지도 미리보기", "Preview the journey")}</Link>
+        <Link className="button secondary" href="/"><Icon name="map" />{t("여정으로 돌아가기", "Back to the journey")}</Link>
       </header>
 
       <section className="surface stack" aria-labelledby="teacher-book-heading">
         <div className="row">
           <h2 className="panel-title" id="teacher-book-heading">{t("함께 읽을 책", "The book we will share")}</h2>
-          <span className="badge">{t("로컬 수업 시안", "Local lesson draft")}</span>
+          <span className="badge">{t("이 기기에 저장하는 수업", "Lesson saved on this device")}</span>
         </div>
         <div className="field-grid">
           <label className="field">
@@ -144,12 +146,15 @@ export function TeacherWorkspace() {
 
 export function AdminWorkspace() {
   const { state, t } = useReading();
+  const { user } = useAuth();
+  const pathname = usePathname();
+  const demo = pathname === "/demo" || pathname.startsWith("/demo/");
   const enabledCount = activities.filter(activity => state.enabled[activity]).length;
   const statusRows = [
-    { ko: "Firebase", en: "Firebase", status: "연결 꺼짐", statusEn: "Not connected", detail: "Auth·Firestore·Storage에 연결하지 않은 로컬 시안입니다.", detailEn: "A local prototype with no Auth, Firestore, or Storage connection." },
-    { ko: "Google 로그인", en: "Google sign-in", status: "미연결", statusEn: "Not connected", detail: "화면의 역할 전환은 시연용이며 실제 로그인이나 권한 검증이 아닙니다.", detailEn: "Role switching is a demonstration, not real sign-in or authorization." },
-    { ko: "사용 분석", en: "Analytics", status: "꺼짐", statusEn: "Off", detail: "외부 분석 도구로 전송하지 않습니다. 아래 기록은 이 탭의 로컬 활동입니다.", detailEn: "No external analytics transmission. The records below are local to this tab." },
-    { ko: "외부 AI", en: "External AI", status: "제한된 로컬 파일럿", statusEn: "Limited local pilot", detail: "학생 질문 코칭·교사 구성안은 승인된 개발 한도에서만 호출합니다. 고전 AI 낭독은 저장된 파일을 재생하며, 운영 환경 AI는 비활성입니다.", detailEn: "Question coaching and teacher outlines use an approved development limit. Classic AI narration plays saved files; production AI is disabled." },
+    { ko: "작업 저장", en: "Workspace storage", status: "이 기기에 저장", statusEn: "On this device", detail: demo ? "체험 기록은 계정 작업과 분리해 이 브라우저에 저장합니다." : "작업은 로그인한 계정별로 이 브라우저에 저장합니다. 기기 간 동기화와 서버 백업은 아직 제공하지 않습니다.", detailEn: demo ? "Demo records are stored in this browser separately from account work." : "Work is stored in this browser under your signed-in account. Cross-device sync and server backup are not available yet." },
+    { ko: "Google 로그인", en: "Google sign-in", status: demo ? "체험 모드" : user ? "로그인됨" : "확인 중", statusEn: demo ? "Demo mode" : user ? "Signed in" : "Checking", detail: demo ? "체험할 역할을 자유롭게 바꿀 수 있습니다. 실제 계정의 권한을 변경하지 않습니다." : "Firebase Google 인증과 서버 세션으로 로그인합니다. 관리자 화면은 서버에서 확인한 권한으로 접근합니다.", detailEn: demo ? "Demo roles can be switched freely. They never change real account permissions." : "Sign-in uses Firebase Google authentication and a server session. Admin access depends on server-verified permissions." },
+    { ko: "사용 분석", en: "Analytics", status: "꺼짐", statusEn: "Off", detail: "외부 분석 도구로 전송하지 않습니다. 아래 기록은 이 작업 공간에서 남긴 활동입니다.", detailEn: "No external analytics transmission. Records below describe activity in this workspace." },
+    { ko: "AI 낭독과 새 생성", en: "Narration and AI generation", status: "저장된 낭독 재생", statusEn: "Saved narration", detail: "샘플 고전은 저장된 음성으로 들을 수 있습니다. 운영 환경의 새 AI 질문·삽화 생성은 꺼져 있습니다.", detailEn: "Sample classics play saved narration. New AI question and illustration generation is disabled in production." },
     { ko: "과제 연동", en: "Homework integration", status: "꺼짐", statusEn: "Off", detail: "외부 과제 시스템에 배부하거나 제출하지 않습니다.", detailEn: "Nothing is assigned or submitted to an external homework system." },
   ];
 
@@ -158,26 +163,26 @@ export function AdminWorkspace() {
       <header className="page-heading">
         <div>
           <p className="eyebrow">{t("운영 현황", "OPERATIONS")}</p>
-          <h1>{t("로컬 시안 살펴보기", "Review the local prototype")}</h1>
-          <p className="muted">{t("현재 브라우저 탭의 시연 데이터입니다. 실제 학교 운영 통계나 학생 학습 효과를 나타내지 않아요.", "Demonstration data for this browser tab. These are not live school statistics or measures of student learning.")}</p>
+          <h1>{demo ? t("운영 화면 체험하기", "Explore the operations desk") : t("작업 공간 운영 현황", "Workspace operations")}</h1>
+          <p className="muted">{demo ? t("샘플 명부와 직접 남긴 체험 기록으로 운영 화면을 살펴보세요. 실제 학교 통계와는 별개예요.", "Explore the desk with a sample roster and your own demo activity. These are separate from real school statistics.") : t("현재 계정으로 이 기기에 저장한 활동과 연결 상태를 확인해요. 전체 학교나 다른 기기의 기록은 포함하지 않아요.", "Review activity saved for this account on this device and connection status. This does not include school-wide or other-device records.")}</p>
         </div>
-        <span className="badge"><Icon name="shield" size={16} />{t("로컬 데이터", "Local data")}</span>
+        <span className="badge"><Icon name="shield" size={16} />{demo ? t("체험 기록", "Demo records") : t("내 작업 기록", "My workspace records")}</span>
       </header>
 
-      <section className="stats-grid" aria-label={t("로컬 시안 집계", "Local prototype totals")}>
+      <section className="stats-grid" aria-label={t("작업 공간 집계", "Workspace totals")}>
         <div className="stat-card"><span className="muted">{t("여정에 포함된 활동", "Included activities")}</span><strong>{enabledCount}<small> / {activities.length}</small></strong><span>{t("현재 수업 구성", "Current lesson setup")}</span></div>
-        <div className="stat-card"><span className="muted">{t("저장한 질문", "Saved questions")}</span><strong>{state.questions.length}</strong><span>{t("이 탭에 저장된 수", "Stored in this tab")}</span></div>
-        <div className="stat-card"><span className="muted">{t("만든 책 판본", "Created book editions")}</span><strong>{state.published.length}</strong><span>{t("로컬 저장본 · AI 생성 횟수 아님", "Local snapshots, not AI generations")}</span></div>
+        <div className="stat-card"><span className="muted">{t("저장한 질문", "Saved questions")}</span><strong>{state.questions.length}</strong><span>{t("이 작업 공간에 남긴 질문", "Questions in this workspace")}</span></div>
+        <div className="stat-card"><span className="muted">{t("만든 책 판본", "Created book editions")}</span><strong>{state.published.length}</strong><span>{t("이 기기에 저장한 완성본", "Editions saved on this device")}</span></div>
         <div className="stat-card"><span className="muted">{t("활동 기록", "Activity records")}</span><strong>{state.events.length}</strong><span>{t("최근 최대 100건", "Up to 100 recent events")}</span></div>
       </section>
 
       <section className="surface stack" aria-labelledby="admin-connections-heading">
         <h2 className="panel-title" id="admin-connections-heading">{t("연결 상태", "Connection status")}</h2>
         {statusRows.map(row => <div className="settings-row" key={row.en}><div><strong>{t(row.ko, row.en)}</strong><p className="muted">{t(row.detail, row.detailEn)}</p></div><span className="badge">{t(row.status, row.statusEn)}</span></div>)}
-        <p className="muted">{t("이 화면에서는 서비스를 연결하거나 요금제를 변경하지 않아요. 실제 인증·접근 권한·서버 저장은 아직 검증하지 않았어요.", "This page does not connect services or change plans. Live authentication, access controls, and server storage have not been verified.")}</p>
+        <p className="muted">{t("이 화면은 연결 상태를 안내합니다. 서비스 연결과 요금제 변경은 여기서 실행하지 않습니다.", "This page reports connection status. It does not connect services or change billing plans.")}</p>
       </section>
 
-      <section className="surface stack" aria-labelledby="admin-roster-heading">
+      {demo ? <section className="surface stack" aria-labelledby="admin-roster-heading">
         <div className="row"><h2 className="panel-title" id="admin-roster-heading">{t("학교 구성원 표시 예시", "Example school roster")}</h2><span className="badge">{t("가상 명부", "Fictional roster")}</span></div>
         <p className="muted">{t("화면 구성을 보여 주는 예시입니다. 실제 계정·membership·학생 명부와 연결되어 있지 않아요.", "An illustration of the roster layout. It is not connected to real accounts, memberships, or student records.")}</p>
         <div className="table-wrap">
@@ -189,7 +194,7 @@ export function AdminWorkspace() {
             </tbody>
           </table>
         </div>
-      </section>
+      </section> : <section className="surface stack" aria-labelledby="admin-roster-heading"><h2 className="panel-title" id="admin-roster-heading">{t("학교 구성원", "School members")}</h2><p className="muted">{t("학교·학급 명부 연결은 아직 제공하지 않습니다. 계정 로그인과 관리자 접근 권한은 학교 명부와 별도로 확인합니다.", "School and class rosters are not connected yet. Account sign-in and administrator access are verified separately from school membership.")}</p></section>}
 
       <section className="surface stack" aria-labelledby="admin-events-heading">
         <div className="row"><Icon name="clock" /><h2 className="panel-title" id="admin-events-heading">{t("최근 활동 기록", "Recent activity")}</h2></div>

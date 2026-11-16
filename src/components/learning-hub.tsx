@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./workspace-link";
 import {useRef, useState} from "react";
 import type {Book} from "@/lib/model";
 import {reportTemplates, getReportTemplate, localizeTemplate, reportFields, type ReportField, type ReportTemplate} from "@/lib/report-templates";

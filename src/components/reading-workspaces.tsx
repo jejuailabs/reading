@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./workspace-link";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useWorkspaceRouter as useRouter } from "./workspace-link";
 import { catalog, peerQuestions } from "@/lib/catalog";
 import { addQuestion, reviseQuestion, reviseQuestionText, MAX_QUESTION_HISTORY, recordEvent, type Book, type Question } from "@/lib/model";
 import { useReading } from "./provider";

@@ -2,6 +2,8 @@
 
 import {useCallback, useEffect, useRef, useState} from "react";
 import {readDeviceRecord,writeDeviceRecord} from "./device-storage";
+import {useStorageScope} from "@/components/storage-scope";
+import {scopedStorageKey} from "./workspace-routing";
 
 const pendingStores = new Set<() => Promise<void>>();
 /** Wait for queued writes before taking a cross-workspace backup or restoring. */
@@ -16,7 +18,9 @@ export function downloadJson(value: unknown, filename: string) {
 }
 
 /** Browser-local drafts only. A stale tab never silently overwrites a newer saved value. */
-export function useStoredState<T>(key: string, initial: () => T, validate: (value: unknown) => boolean, options?: {normalize?:(value:unknown)=>T; legacy?:()=>T|null}) {
+export function useStoredState<T>(logicalKey: string, initial: () => T, validate: (value: unknown) => boolean, options?: {normalize?:(value:unknown)=>T; legacy?:()=>T|null}) {
+  const scope = useStorageScope();
+  const key = scopedStorageKey(logicalKey, scope);
   const [state, setState] = useState<T>(initial);
   const [ready, setReady] = useState(false);
   const [storageOk, setStorageOk] = useState(true);
@@ -33,7 +37,7 @@ export function useStoredState<T>(key: string, initial: () => T, validate: (valu
         const saved=await readDeviceRecord(key); if(!active)return;
         expected.current=saved?.revision??0;
         const legacy=localStorage.getItem(key);
-        const value:unknown=saved?saved.value:legacy?JSON.parse(legacy):optionsRef.current?.legacy?.()??null;
+        const value:unknown=saved?saved.value:legacy?JSON.parse(legacy):scope === "demo" ? optionsRef.current?.legacy?.()??null : null;
         if(value!==null) {
           if(!validateRef.current(value))throw new Error("INVALID_SAVED_DATA");
           setState(optionsRef.current?.normalize?optionsRef.current.normalize(value):value as T);
@@ -42,7 +46,7 @@ export function useStoredState<T>(key: string, initial: () => T, validate: (valu
       finally{if(active)setReady(true);}
     })();
     return ()=>{active=false;};
-  }, [key]);
+  }, [key, scope]);
   useEffect(() => {
     const flush = async () => { await sequence.current; if(failed.current)throw new Error("UNSAVED_WORK"); };
     pendingStores.add(flush);

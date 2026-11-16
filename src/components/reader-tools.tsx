@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./workspace-link";
 import {useState,type ReactNode} from "react";
 import {attachBook,toggleBookmark,type Book,type ReaderMode} from "@/lib/model";
 import {exportBookPdf,downloadPdf} from "@/lib/pdf-export";

@@ -3,15 +3,32 @@
 import { createContext, useContext, useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import { makeInitialState, parsePrototypeState, type PrototypeState } from "@/lib/model";
 import {downloadJson,useStoredState} from "@/lib/workspace-store";
+import {StorageScopeProvider} from "./storage-scope";
+import type {Role} from "@/lib/model";
 
 type ReadingContext = {state: PrototypeState; setState: Dispatch<SetStateAction<PrototypeState>>; ready: boolean; storageOk: boolean; storageError:string; retryStorage:()=>void; emergencyBackup:()=>void; t: (ko: string, en: string) => string; toast: (message: string) => void};
 const Context = createContext<ReadingContext | null>(null);
 
-export function ReadingProvider({children}: {children: ReactNode}) {
-  const {state,setState,ready,storageOk,error:storageError,retry:retryStorage}=useStoredState<PrototypeState>("onbook:reading:local:v2",makeInitialState,value=>parsePrototypeState(JSON.stringify(value))!==null,{normalize:value=>parsePrototypeState(JSON.stringify(value))!,legacy:()=>{
+export function ReadingProvider({children,scope="demo",role}: {children: ReactNode; scope?:string; role?:Role}) {
+  return <StorageScopeProvider scope={scope}><ReadingStateProvider key={scope} scope={scope} role={role}>{children}</ReadingStateProvider></StorageScopeProvider>;
+}
+
+function ReadingStateProvider({children,scope,role}: {children: ReactNode; scope:string; role?:Role}) {
+  function initial() {
+    const state=makeInitialState();
+    if(scope!=="demo") {
+      state.role=role??"student";
+      state.project={...state.project,id:"my-first-story",title:"나의 새로운 이야기",pages:[{text:"",en:"",art:"coast"}],sourceQuestionId:null};
+      state.cast={narrator:"",child:"",wind:""};
+    }
+    return state;
+  }
+  const {state:storedState,setState,ready,storageOk,error:storageError,retry:retryStorage}=useStoredState<PrototypeState>("onbook:reading:local:v2",initial,value=>parsePrototypeState(JSON.stringify(value))!==null,{normalize:value=>parsePrototypeState(JSON.stringify(value))!,legacy:()=>{
     const raw=sessionStorage.getItem("onbook:prototype:session:v1");
     if(!raw)return null;const value=parsePrototypeState(raw);if(!value)throw new Error("INVALID_LEGACY_DATA");return value;
   }});
+  // Stored/demo roles can never grant permissions to a signed-in account.
+  const state=scope!=="demo"?{...storedState,role:role??"student"}:storedState;
   const [message, setMessage] = useState("");
   useEffect(() => {
     if (!ready) return;

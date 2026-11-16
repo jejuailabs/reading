@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./workspace-link";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useWorkspaceRouter as useRouter } from "./workspace-link";
 import { script } from "@/lib/catalog";
 import { editPage, publishProject, recordEvent, type Artwork, type Project } from "@/lib/model";
 import { useReading } from "./provider";

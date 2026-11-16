@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./workspace-link";
 import { useRef, useState, type ChangeEvent } from "react";
 import { downloadJson, useStoredState } from "@/lib/workspace-store";
 import {

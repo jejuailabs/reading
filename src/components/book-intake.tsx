@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./workspace-link";
 import {useState} from "react";
 import {createImportedBook, readImageFile, textPages} from "@/lib/book-intake";
 import {extractPdfText} from "@/lib/pdf-intake";

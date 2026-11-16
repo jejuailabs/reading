@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./workspace-link";
 import {useEffect, useRef, useState} from "react";
 import type {Book, Locale} from "@/lib/model";
 import {recordEvent} from "@/lib/model";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useWorkspaceRouter as useRouter } from "./workspace-link";
 import { bookInterests, bookSuggestions, filterBookSuggestions, findSuggestedBook, suggestedBookInput, type BookInterest, type BookSuggestion } from "@/lib/book-suggestions";
 import { createImportedBook } from "@/lib/book-intake";
 import { recordEvent } from "@/lib/model";
